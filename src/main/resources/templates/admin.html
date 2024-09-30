@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>header}}
+
+<body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top">
+            <h1>PGEC</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-6 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sessions">Eventos</a></li>
+                <li class="nav-item"><a class="nav-link" href="home">CERRAR SESIÓN</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="masthead">
+    <div class="container">
+        {{#user}}
+        <div class="masthead-subheading">Hola, {{user}}</div>
+        {{/user}}
+        <div class="masthead-heading text-uppercase">PGEC</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#sessions">EVENTOS</a>
+    </div>
+</header>
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Servicios</h2>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <img class="imgdj rounded-circle" src="assets\img\PGEC\Servicios\concierto.jpeg">
+                <h4 class="my-3">Actualidad</h4>
+                <p class="text-muted">Disfruta de eventos variados y entretenidos. Encuentra el evento que más te guste y apúntate.
+                    Música, deporte, arte, cultura, naturaleza y más.
+                    disfruta del evento que quieras, reserva tu ticket online y diviértete.</p>
+            </div>
+            <div class="col-md-4">
+                <img class="imgdj rounded-circle" src="assets\img\PGEC\Servicios\OIG.N.jpeg">
+                <h4 class="my-3">Eventos Premium</h4>
+                <p class="text-muted">Disfruta de nuestros eventos con ventajas exclusivas con la mejor calidad
+                    y profesionalidad. Disfruta de un servicio personalizado</p>
+            </div>
+            <div class="col-md-4">
+                <img class="imgdj rounded-circle" src="assets\img\PGEC\Servicios\OIG.3hJIlc.jpeg">
+                <h4 class="my-3">Eventos VIP</h4>
+                <p class="text-muted">¿Estás pensando en organizar un cumpleaños, una fiesta trabajo, algún
+                    aniversario o simplemente una fiesta TOP con tus amigos? Este es tu sitio.
+                    Accede a los eventos más exclusivos y divertidos. Conoce a famosos,
+                    disfruta de ventajas y regalos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section bs-dark" id="sessions">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Eventos</h2>
+            <h3 class="section-subheading text-muted">Tus entradas para los mejores eventos aquí</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                {{#sessions}}
+                <div class=my-5></div>
+                <div class="sessions-item">
+                    <a class="sessions-link" data-bs-toggle="modal" href="#sessionsModal{{name}}">
+                        <div class="sessions-hover">
+                            <div class="sessions-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img src="data:image/png;base64,{{base64Image}}" alt="base64Image"
+                             class="img-fluid" style="object-fit: cover; max-width: 420px; max-height: 350px; width: 100%; margin: 0 auto;" />
+
+
+                    </a>
+                    <div class="sessions-caption">
+                        <div class="sessions-caption-heading text-uppercase">{{name}}</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                {{/sessions}}
+            </div>
+        </div>
+    </div>
+
+</section>
+<div class="container">
+    <div class="row justify-content-around">
+        <div class="col-md text-center mb-5">
+            <a href="createEvent">
+                <button class="btn btn-primary btn-xl text-uppercase">
+                    <i class="fas fa-plus"></i>
+                    Añadir
+                    <br>
+                    Evento
+                </button>
+            </a>
+        </div>
+        <div class="col-md text-center mb-5">
+            <button class="btn btn-primary btn-xl text-uppercase" onclick="window.location.href='/tickets'">
+                VER ENTRADAS
+                <br>
+                COMPRADAS
+            </button>
+        </div>
+        <div class="col-md text-center mb-5">
+            <a href="/preEditEvent">
+                <button class="btn btn-primary btn-xl text-uppercase">
+                    <i class="fas fa-pen-to-square"></i>
+                    EDITAR
+                    <br>
+                    EVENTO
+                </button>
+            </a>
+        </div>
+        <div class="col-md text-center mb-5">
+            <a href="/deleteEvent">
+                <button class="btn btn-primary btn-xl text-uppercase">
+                    <i class="fas fa-trash"></i>
+                    BORRAR
+                    <br>
+                    EVENTO
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</div>
+{{>footer}}
+
+{{#sessions}}
+<div class="sessions-modal modal fade" id="sessionsModal{{name}}" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                                                                  alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body text-center">
+
+                            <h2 class="text-uppercase">{{ name }}</h2>
+                            <p class="item-intro text-black"><strong>FECHA: {{ date }}</strong></p>
+                            <p class="item-intro text-black"><strong>DIRECCIÓN: {{ address }}</strong></p>
+                            <img class="imgE mx-auto" src="data:image/png;base64,{{base64Image}}" alt="base64Image"
+                                 style="display: block; margin: 0 auto; max-width: 100%; height: auto; object-fit: cover;" />
+
+                            <p class = "my-5">{{{description}}}</p>
+                            <p>Precio Base: <strong>{{ticketPrice}}.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/sessions}}
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+</body>
+
+</html>

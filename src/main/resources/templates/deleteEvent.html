@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>header}}
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="../admin">
+            <h1>PGEC</h1>
+        </a>
+    </div>
+</nav>
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="text-uppercase">
+                    <h1 class="text-center my-5">BORRAR EVENTO</h1>
+                </div>
+                <form method="POST" action="/events/delete">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <div class="form-group">
+                        <label for="event"></label>
+                        <select class="form-control" name="name" id="name" placeholder="Evento*" data-sb-validations="required">
+                            {{#sessions}}
+                            <option>{{ name }}</option>
+                            {{/sessions}}
+                        </select>
+                        <br>
+                    </div>
+                    <button class="btn btn-primary" type="submit">BORRAR EVENTO</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{{>footer}}
+</body>
+</html>

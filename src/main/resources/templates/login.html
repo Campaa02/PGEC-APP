@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>PGEC</title>
+  <link rel="icon" type="image/x-icon" href="assets\img\PGEC\logo.jpg" />
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  <link href="css/login.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+
+  .margin {
+    margin-top: 10px;
+  }
+</style>
+<body>
+<form action="/login" method="post">
+  <h1 class="title"><strong>PGEC</strong></h1>
+  <label for="username">
+    <i class="fas fa-user"></i>
+    <input placeholder="Usuario" type="text" id="username" name="username" required>
+  </label>
+  <label for="password">
+    <i class="fa fa-lock"></i>
+    <input placeholder="Contraseña" type="password" id="password" name="password" required>
+  </label>
+  <button id="button" type="submit">Iniciar sesión</button>
+  <div class="margin">¿No tienes usuario en PGEC? <a href="signUp">REGÍSTRATE</a></div>
+  <div class="margin">¿Desea cambiar su contraseña? <a href="changePassword">NUEVA CONTRASEÑA</a></div>
+
+</form>
+
+
+</body>
+</html>

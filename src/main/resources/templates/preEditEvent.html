@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{{>header}}
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="/admin">
+            <h1>PGEC</h1>
+        </a>
+    </div>
+</nav>
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="text-center my-5">EDITAR EVENTO</h1>
+                    <div class="container">
+                    <div class="row text-align = left;">
+                        <form action="/editEvent">
+                        <div class="form-group">
+                            <label for="name" class="text-align = left;">Evento a editar</label>
+                            <select class="form-control" name="name" id="name" placeholder="Evento*"
+                                    data-sb-validations="required">
+                                {{#sessions}}
+                                <option>{{ name }}</option>
+                                {{/sessions}}
+                            </select>
+                        </div>
+                            <br>
+                        <button type="submit" class="btn btn-primary" name="submit">SELECCIONAR</button>
+                            <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+            </div>
+    </div>
+</section>
+
+{{>footer}}
+</body>
+
+</html>

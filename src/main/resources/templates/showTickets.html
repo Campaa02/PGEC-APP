@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{{>header}}
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="/admin">
+            <h1>PGEC</h1>
+        </a>
+    </div>
+</nav>
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="my-5 ">CONSULTA DE COMPRAS REALIZADAS</h1>
+                <div class="container">
+                    <div class="row">
+                        <form action="/tickets">
+                            <div class="form-group">
+                                <label for="event"></label>
+                                <select class="form-control" name="name" id="name" placeholder="Evento*"
+                                        data-sb-validations="required">
+                                    <option selected>Todos</option>
+                                    {{#sessions}}
+                                    <option>{{ name }}</option>
+                                    {{/sessions}}
+                                </select>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary" name="submit">FILTRAR</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Evento</th>
+                                <th>Tipo de entrada</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                            </tr>
+                            </thead>
+                            {{#tickets}}
+                            <tr>
+                                <a id="{{name}}" class="book item"><i class="book icon"></i>
+                                    <td>{{ name }}</td>
+                                    <td>{{#event}}{{ name }}{{/event}}</td>
+                                    <td>{{ type }}</td>
+                                    <td>{{ num }}</td>
+                                    <td>{{ totalPrice }} $</td>
+                                </a>
+                            </tr>
+                            {{/tickets}}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{>footer}}
+</body>
+
+</html>

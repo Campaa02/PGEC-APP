@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>PGEC</title>
+    <link rel="icon" type="image/x-icon" href="assets\img\PGEC\logo.jpg" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link href="css/login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+<form action="/signUp" method="post" onsubmit="return validatePassword()">
+    <h1 class="title"><strong>PGEC</strong></h1>
+    <label for="username">
+        <i class="fas fa-user"></i>
+        <input placeholder="Usuario" type="text" id="username" name="username" required data-sb-validations="required">
+        <div class="invalid-feedback" data-sb-feedback="password:required">Elige un nombre de usuario</div>
+    </label>
+    <label for="password">
+        <i class="fa fa-lock"></i>
+        <input placeholder="Contraseña" type="password" id="password" name="password" required data-sb-validations="required">
+        <div class="invalid-feedback" data-sb-feedback="password:required">Contraseña de mínimo 10 carácteres</div>
+    </label>
+    <label for="confirmPassword">
+        <i class="fa fa-lock"></i>
+        <input placeholder="Confirma la contraseña" type="password" id="confirmPassword" name="confirmPassword" required>
+        <div class="invalid-feedback" data-sb-feedback="confirmPassword:required">Debe ser igual que en el campo anterior</div>
+    </label>
+    <button id="button" type="submit">REGISTRARSE</button>
+</form>
+
+<script>
+    function validatePassword() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+
+            var alertDiv = document.createElement("div");
+            alertDiv.className = "alert-signUp";
+            alertDiv.textContent = "Las contraseñas no coinciden";
+
+            var form = document.querySelector("form");
+            form.appendChild(alertDiv);
+
+            return false;
+        }
+        return true;
+    }
+</script>
+<style>
+    .alert-signUp {
+        background-color: #ff8080;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+</body>
+
+</html>
+

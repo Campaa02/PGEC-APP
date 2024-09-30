@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>header}}
+<body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="/user">
+            <h1>PGEC</h1>
+        </a>
+    </div>
+</nav>
+<section class="page-section bg-dark" id="session">
+    <div class="container">
+        <h1 class="text-center mt-5">COMPRA DE ENTRADAS</h1>
+    </div>
+</section>
+<section class="page-section" id="contact">
+    <div class="container">
+        <h4 class="text-center">Rellene todo el formulario para realizar la compra:</h4>
+        <br>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form action="/tickets/add" method="post">
+                    <div class="form-group">
+                        <label for="name" style="text-align: left;">Introduzca su nombre:</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Nombre Completo*" required>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" style="text-align: left;">Introduzca su cuenta de correo electrónico:</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email*" required>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" style="text-align: left;">Introduzca un número de teléfono de contacto:</label>
+                        <input type="number" class="form-control" name="phone" id="phone" placeholder="Teléfono*" required>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="event" style="text-align: left;">Seleccione el evento que desea comprar:</label>
+                        <select class="form-control" name="event" id="event" required>
+                            <option disabled selected>Evento*</option>
+                            {{#sessions}}
+                            <option data-price="{{ticketPrice}}">{{name}}</option>
+                            {{/sessions}}
+                        </select>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="type" style="text-align: left;">Seleccione el tipo de entrada:</label>
+                        <select class="form-control" name="type" id="type" required>
+                            <option>NORMAL</option>
+                            <option>VIP</option>
+                            <option>PREMIUM</option>
+                        </select>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="num" style="text-align: left;">Seleccione el número de entradas que desea comprar:</label>
+                        <input type="number" class="form-control" name="num" id="num" placeholder="Entradas*" min="1" max="10" required>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-8 mx-auto text-center">
+                        <label for="totalPrice" style="text-align: center;"><strong>Precio total:</strong></label>
+                        <span id="totalPrice">Seleccione el número de entradas</span>
+                        <br>
+                            </div>
+                    </div>
+                    <div class="col-lg-8 mx-auto text-center">
+                        <button type="submit" class="btn btn-primary" name="submit">COMPRAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{>footer}}
+
+<script src="js/priceMultiplier.js"></script>
+
+</body>
+</html>
